@@ -1,0 +1,136 @@
+---
+import { Image } from 'astro:assets';
+import healthCenterImage from '../assets/featured-projects/centro-salud-el-triunfo.jpg';
+import lasMercedesImage from '../assets/featured-projects/ie-las-mercedes.jpg';
+import challhuahuachoImage from '../assets/featured-projects/subgerencia-challhuahuacho.jpg';
+import draImage from '../assets/featured-projects/sede-dra-puerto-maldonado.jpg';
+import santaLuciaBridgeImage from '../assets/featured-projects/puente-santa-lucia.jpg';
+import quillabambaBuildingImage from '../assets/featured-projects/edificio-comercial-quillabamba.jpg';
+
+const projects = [
+	{
+		number: '01',
+		type: 'Institucional / Salud',
+		title: 'Centro de Salud El Triunfo',
+		location: 'Puerto Maldonado · Madre de Dios',
+		image: healthCenterImage,
+		alt: 'Proyecto del Centro de Salud El Triunfo en Puerto Maldonado',
+		href: 'https://josearenasarquitecto.com/proyecto-institucional-centro-de-salud-el-triunfo-puerto-maldonado/',
+	},
+	{
+		number: '02',
+		type: 'Institucional / Educación',
+		title: 'I.E. Las Mercedes',
+		location: 'Madre de Dios',
+		image: lasMercedesImage,
+		alt: 'Vista general del proyecto I.E. Las Mercedes en Madre de Dios',
+		href: 'https://josearenasarquitecto.com/proyecto-institucional-ie-las-mercedes-madres-de-dios/',
+	},
+	{
+		number: '03',
+		type: 'Institucional / Gestión pública',
+		title: 'Local Institucional Subgerencia de Desarrollo Económico',
+		location: 'Challhuahuacho · Apurímac',
+		image: challhuahuachoImage,
+		alt: 'Local institucional de la Subgerencia de Desarrollo Económico de Challhuahuacho',
+		href: 'https://josearenasarquitecto.com/proyecto-institucional-local-institucional-sub-gerencia-de-desarrollo-economico-challhuahuacho-apurimac/',
+	},
+	{
+		number: '04',
+		type: 'Institucional / Administración',
+		title: 'Sede DRA',
+		location: 'Puerto Maldonado · Madre de Dios',
+		image: draImage,
+		alt: 'Sede de la Dirección Regional de Agricultura en Puerto Maldonado',
+		href: 'https://josearenasarquitecto.com/proyecto-institucional-direccion-regional-de-agricultura/',
+	},
+	{
+		number: '05',
+		type: 'Infraestructura / Transporte',
+		title: 'Puente Santa Lucía',
+		location: 'Espinar',
+		image: santaLuciaBridgeImage,
+		alt: 'Proyecto del Puente Santa Lucía en Espinar',
+		href: 'https://josearenasarquitecto.com/proyecto-puente-santa-lucia-espinar/',
+	},
+	{
+		number: '06',
+		type: 'Comercial',
+		title: 'Edificio Comercial',
+		location: 'Quillabamba',
+		image: quillabambaBuildingImage,
+		alt: 'Proyecto de edificio comercial en Quillabamba',
+		href: 'https://josearenasarquitecto.com/proyecto-comercial-edificio-comercial-quillabamba/',
+	},
+];
+---
+
+<section id="portafolio" aria-labelledby="portfolio-title" class="mx-[10px] mb-[10px] border border-[#241f1a]/15 bg-[#e8dfd3] px-6 py-12 text-[#241f1a] lg:mx-[18px] lg:mb-[18px] lg:px-[clamp(4rem,7vw,8rem)] lg:py-20">
+	<header class="grid gap-9 border-b border-[#241f1a]/25 pb-12 lg:grid-cols-12 lg:items-end lg:pb-16">
+		<div class="lg:col-span-8">
+			<p class="mb-5 flex items-center gap-3 text-[0.58rem] font-bold uppercase tracking-[0.24em] text-[#241f1a]/60">
+				<span class="block h-px w-7 bg-[#9a673f]"></span>
+				04 / Portafolio
+			</p>
+			<h2 id="portfolio-title" class="max-w-[900px] text-[clamp(2.9rem,6.2vw,6.75rem)] font-light leading-[0.91] tracking-[-0.055em]">
+				La gran arquitectura no puede existir sin un <strong class="[font-family:var(--grotesk)] font-[520] tracking-[-0.065em]">gran diseño.</strong>
+			</h2>
+		</div>
+
+		<div class="lg:col-span-3 lg:col-start-10">
+			<p class="max-w-[430px] text-[0.9rem] leading-[1.75] text-[#241f1a]/70">
+				Creemos en la arquitectura responsable como una herramienta indispensable para lograr edificaciones funcionales, estéticas, vinculadas con su entorno y construidas con materiales de la zona.
+			</p>
+			<a
+				href="https://josearenasarquitecto.com/proyectos/"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="mt-7 inline-flex items-center gap-7 border border-[#241f1a] bg-[#241f1a] px-5 py-3.5 text-[0.58rem] font-bold uppercase tracking-[0.18em] text-[#f1e9de] transition-colors duration-300 hover:bg-transparent hover:text-[#241f1a]"
+			>
+				Ver nuestros proyectos
+				<svg class="size-3.5 fill-none stroke-current stroke-[1.4]" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" /></svg>
+			</a>
+		</div>
+	</header>
+
+	<div class="mt-10 grid gap-x-6 gap-y-11 md:grid-cols-2 lg:mt-14 lg:gap-x-8 lg:gap-y-16">
+		{projects.map((project) => (
+			<a
+				href={project.href}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="group relative flex min-w-0 flex-col focus-visible:z-10"
+				aria-label={`Ver ${project.title.toLowerCase()}`}
+			>
+				<div class="relative aspect-[16/10] overflow-hidden border border-[#241f1a]/20 bg-[#c9bcad]">
+					<Image
+						src={project.image}
+						alt={project.alt}
+						format="webp"
+						quality={88}
+						loading="lazy"
+						class="size-full object-cover grayscale-[12%] transition-[filter] duration-700 ease-out group-hover:grayscale-0"
+					/>
+					<div class="absolute inset-0 bg-gradient-to-t from-[#17130f]/38 via-transparent to-[#17130f]/8 transition-opacity duration-500 group-hover:opacity-60"></div>
+					<div class="absolute left-0 top-0 border-b border-r border-white/35 bg-[#201b17]/60 px-3 py-2 text-[0.52rem] font-bold uppercase tracking-[0.2em] text-white/85 backdrop-blur-sm">
+						JA / {project.number}
+					</div>
+					<div class="absolute bottom-0 left-1/2 h-4 w-px bg-white/65" aria-hidden="true"></div>
+					<div class="absolute bottom-2 left-[calc(50%-1.75rem)] w-14 border-t border-white/50" aria-hidden="true"></div>
+				</div>
+
+				<div class="mt-4 flex items-start justify-between gap-5 border-t border-[#241f1a]/30 pt-5">
+					<div>
+						<p class="mb-3 text-[0.5rem] font-bold uppercase tracking-[0.18em] text-[#241f1a]/50">{project.type}</p>
+						<h3 class="max-w-[620px] text-[clamp(1.55rem,2.5vw,2.35rem)] font-light leading-[1.04] tracking-[-0.04em]">{project.title}</h3>
+						<p class="mt-3 text-[0.65rem] uppercase tracking-[0.13em] text-[#241f1a]/55">{project.location}</p>
+					</div>
+					<span class="mt-1 inline-flex shrink-0 items-center gap-3 text-[0.5rem] font-bold uppercase tracking-[0.16em] text-[#241f1a]/60 transition-colors group-hover:text-[#241f1a]" aria-hidden="true">
+						<span class="hidden lg:inline">Ver proyecto</span>
+						<svg class="size-4 fill-none stroke-current stroke-[1.4] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" viewBox="0 0 16 16"><path d="M3 13 13 3M6 3h7v7" /></svg>
+					</span>
+				</div>
+			</a>
+		))}
+	</div>
+</section>

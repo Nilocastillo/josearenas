@@ -1,0 +1,127 @@
+---
+import { Image } from 'astro:assets';
+import residentialImage from '../assets/projects/residencial.jpg';
+import institutionalImage from '../assets/projects/institucional.jpg';
+import commercialImage from '../assets/projects/comercial.jpg';
+import culturalImage from '../assets/projects/cultural.jpg';
+import religiousImage from '../assets/projects/religioso.jpg';
+import urbanImage from '../assets/projects/urbanistico.jpg';
+
+const rulerScale = ['00', '10', '20', '30', '40'];
+const verticalScale = ['00', '25', '50', '75'];
+
+const projectTypes = [
+	{
+		number: '01',
+		title: 'Proyecto Residencial',
+		image: residentialImage,
+		alt: 'Vivienda contemporánea del portafolio residencial de José Arenas Arquitecto',
+		href: 'https://josearenasarquitecto.com/proyecto-residencial/',
+	},
+	{
+		number: '02',
+		title: 'Proyecto Institucional',
+		image: institutionalImage,
+		alt: 'Edificio del portafolio institucional de José Arenas Arquitecto',
+		href: 'https://josearenasarquitecto.com/proyecto-institucional/',
+	},
+	{
+		number: '03',
+		title: 'Proyecto Comercial',
+		image: commercialImage,
+		alt: 'Edificio del portafolio comercial de José Arenas Arquitecto',
+		href: 'https://josearenasarquitecto.com/proyecto-comercial/',
+	},
+	{
+		number: '04',
+		title: 'Proyecto Cultural',
+		image: culturalImage,
+		alt: 'Intervención urbana del portafolio cultural de José Arenas Arquitecto',
+		href: 'https://josearenasarquitecto.com/proyecto-cultural/',
+	},
+	{
+		number: '05',
+		title: 'Proyecto Religioso',
+		image: religiousImage,
+		alt: 'Templo contemporáneo del portafolio religioso de José Arenas Arquitecto',
+		href: 'https://josearenasarquitecto.com/proyecto-religioso/',
+	},
+	{
+		number: '06',
+		title: 'Proyecto Urbanístico',
+		image: urbanImage,
+		alt: 'Espacio público del portafolio urbanístico de José Arenas Arquitecto',
+		href: 'https://josearenasarquitecto.com/proyecto-urbanistico/',
+	},
+];
+---
+
+<section id="proyectos" aria-labelledby="projects-title" class="mx-[10px] mb-[10px] border border-[#eee4d8]/10 bg-[#201b17] px-6 py-12 text-[#eee4d8] lg:mx-[18px] lg:mb-[18px] lg:px-[clamp(4rem,7vw,8rem)] lg:py-20">
+	<header class="grid gap-8 border-b border-[#eee4d8]/20 pb-10 lg:grid-cols-12 lg:items-end">
+		<div class="lg:col-span-8">
+			<p class="mb-5 flex items-center gap-3 text-[0.58rem] font-bold uppercase tracking-[0.24em] text-[#eee4d8]/65">
+				<span class="block h-px w-7 bg-[#cf9b64]"></span>
+				03 / Proyectos
+			</p>
+			<h2 id="projects-title" class="text-[clamp(3.2rem,7vw,7.5rem)] font-light leading-[0.85] tracking-[-0.055em]">
+				Ámbitos de<br /><em class="[font-family:var(--grotesk)] font-[520] not-italic tracking-[-0.065em]">trabajo.</em>
+			</h2>
+		</div>
+		<p class="max-w-[360px] [font-family:var(--serif)] text-[1.05rem] leading-[1.5] text-[#eee4d8]/70 lg:col-span-3 lg:col-start-10">
+			Cada tipología parte de una lectura precisa del contexto, el programa y las personas que ocuparán el espacio.
+		</p>
+	</header>
+
+	<div class="mt-8 grid gap-4 md:grid-cols-2 lg:mt-10 lg:grid-cols-3 lg:gap-6">
+		{projectTypes.map((project) => (
+			<a
+				href={project.href}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="group relative flex min-w-0 flex-col border border-[#eee4d8]/20 bg-[#181410] p-3 transition-colors duration-700 ease-out hover:border-[#cf9b64]/40 focus-visible:z-10 lg:p-4"
+				aria-label={`Ver ${project.title.toLowerCase()}`}
+			>
+				<div class="border border-[#eee4d8]/20 bg-[#201b17]">
+					<div class="flex h-9 border-b border-[#eee4d8]/20" aria-hidden="true">
+						<div class="grid w-8 shrink-0 place-items-center border-r border-[#eee4d8]/20 text-[0.42rem] font-bold tracking-[0.12em] text-[#cf9b64]">X</div>
+						<div class="flex flex-1 items-end justify-between px-3 pb-1.5 text-[0.42rem] font-semibold tracking-[0.15em] text-[#eee4d8]/45">
+							{rulerScale.map((value) => (
+								<span class="relative after:absolute after:-bottom-1.5 after:left-1/2 after:h-1 after:w-px after:bg-[#eee4d8]/35">{value}</span>
+							))}
+						</div>
+					</div>
+
+					<div class="flex">
+						<div class="flex w-8 shrink-0 flex-col items-center justify-around border-r border-[#eee4d8]/20 py-2 text-[0.4rem] font-semibold tracking-[0.1em] text-[#eee4d8]/40" aria-hidden="true">
+							{verticalScale.map((value) => <span class="[writing-mode:vertical-rl] [transform:rotate(180deg)]">{value}</span>)}
+						</div>
+						<div class="relative aspect-[4/3] min-w-0 flex-1 overflow-hidden bg-[#2a241e]">
+							<Image
+								src={project.image}
+								alt={project.alt}
+								format="webp"
+								quality={88}
+								loading="lazy"
+								class="size-full object-cover grayscale-[18%] transition-[filter] duration-700 ease-out group-hover:grayscale-0"
+							/>
+							<div class="absolute inset-0 bg-gradient-to-t from-[#17130f]/30 via-transparent to-[#17130f]/10 transition-opacity duration-700 ease-out group-hover:opacity-75"></div>
+							<div class="absolute bottom-0 left-1/2 h-4 w-px bg-white/65" aria-hidden="true"></div>
+							<div class="absolute bottom-2 left-[calc(50%-1.75rem)] w-14 border-t border-white/50" aria-hidden="true"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="flex min-h-[128px] items-end justify-between gap-5 px-2 pb-2 pt-6 lg:min-h-[142px] lg:px-3">
+					<div>
+						<p class="mb-3 text-[0.48rem] font-bold uppercase tracking-[0.2em] text-[#cf9b64]">Ámbito / {project.number}</p>
+						<h3 class="text-[clamp(1.3rem,2vw,1.8rem)] font-light leading-tight tracking-[-0.035em]">{project.title}</h3>
+						<p class="mt-3 text-[0.48rem] font-semibold uppercase tracking-[0.17em] text-[#eee4d8]/40">Explorar tipología</p>
+					</div>
+					<span class="grid size-10 shrink-0 place-items-center border border-[#eee4d8]/35 transition-[border-color,color] duration-700 ease-out group-hover:border-[#cf9b64]/70 group-hover:text-[#cf9b64]" aria-hidden="true">
+						<svg class="size-4 fill-none stroke-current stroke-[1.4] transition-transform duration-700 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 16 16"><path d="M3 13 13 3M6 3h7v7" /></svg>
+					</span>
+				</div>
+			</a>
+		))}
+	</div>
+</section>

@@ -1,17 +1,25 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import AboutSection from '../components/AboutSection.astro';
+import ProjectsGrid from '../components/ProjectsGrid.astro';
+import FeaturedProjects from '../components/FeaturedProjects.astro';
+import ClosingStatement from '../components/ClosingStatement.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+	title="José Arenas — Arquitectura con sentido de lugar"
+	description="Estudio de arquitectura en Lima, Perú. Diseñamos espacios serenos, precisos y profundamente vinculados con su paisaje."
+>
+	<Header />
+	<main id="contenido">
+		<Hero />
+		<AboutSection />
+		<ProjectsGrid />
+		<FeaturedProjects />
+		<ClosingStatement />
+	</main>
+	<Footer />
+</BaseLayout>

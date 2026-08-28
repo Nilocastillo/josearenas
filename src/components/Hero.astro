@@ -1,0 +1,149 @@
+---
+import { Image } from 'astro:assets';
+import heroImage from '../assets/hero-casa-pc.jpg';
+
+const horizontalScale = ['00', '05', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55'];
+const verticalScale = ['00', '10', '20', '30', '40', '50'];
+---
+
+<section
+	class="relative isolate mx-[10px] mb-[10px] min-h-[calc(100svh-88px)] overflow-hidden rounded-[24px] border border-[#efe5d8]/10 bg-[#84705c] lg:mx-[18px] lg:mb-[18px] lg:min-h-[calc(100svh-108px)] lg:rounded-[34px]"
+	aria-labelledby="hero-title"
+>
+	<Image
+		class="absolute inset-0 z-[-30] size-full scale-[1.42] object-cover object-center opacity-0 transition-[opacity,transform] duration-[1400ms] ease-out data-[visible=true]:scale-[1.34] data-[visible=true]:opacity-100 sm:object-[46%_center]"
+		data-hero-image
+		data-visible="false"
+		src={heroImage}
+		alt="Proyecto residencial Casa PC de José Arenas Arquitecto"
+		format="webp"
+		quality={88}
+		loading="eager"
+		fetchpriority="high"
+	/>
+	<div
+		class="absolute inset-0 z-[-20]"
+		aria-hidden="true"
+		style="background: linear-gradient(90deg, rgba(31,20,13,.72) 0%, rgba(38,25,16,.25) 48%, rgba(24,17,12,.2) 100%), linear-gradient(0deg, rgba(25,17,12,.7) 0%, transparent 42%, rgba(20,15,12,.05) 70%);"
+	></div>
+	<div
+		class="pointer-events-none absolute inset-0 z-[-10] opacity-[0.16] mix-blend-soft-light"
+		aria-hidden="true"
+		style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E&quot;);"
+	></div>
+
+	<div class="absolute left-20 right-20 top-0 z-[2] hidden justify-between border-t border-[#f4e7d7]/30 pt-[1.2rem] text-[0.55rem] font-semibold tracking-[0.14em] text-[#f4e7d7]/70 lg:flex" aria-hidden="true">
+		{horizontalScale.map((number) => (
+			<span class="relative after:absolute after:-top-[1.2rem] after:left-1/2 after:h-[7px] after:w-px after:bg-[#f4e7d7]/30">{number}</span>
+		))}
+	</div>
+	<div class="absolute bottom-16 left-0 top-16 z-[2] hidden flex-col justify-between border-l border-[#f4e7d7]/30 pl-[1.2rem] text-[0.55rem] font-semibold tracking-[0.14em] text-[#f4e7d7]/70 lg:flex" aria-hidden="true">
+		{verticalScale.map((number) => (
+			<span class="relative [writing-mode:vertical-rl] [transform:rotate(180deg)] after:absolute after:-left-[1.2rem] after:top-1/2 after:h-px after:w-[7px] after:bg-[#f4e7d7]/30">{number}</span>
+		))}
+	</div>
+
+	<div class="pointer-events-none absolute bottom-0 right-6 top-0 z-[1] border-l border-dashed border-[#d69d62]/55 lg:left-[32.5%] lg:right-auto" aria-hidden="true">
+		<span class="absolute left-0 top-[11%] hidden h-6 min-w-6 -translate-x-1/2 -translate-y-1/2 place-items-center border border-[#eee4d8]/70 bg-[#1d1a16]/55 px-1 text-[0.5rem] lg:grid">A</span>
+	</div>
+	<div class="pointer-events-none absolute bottom-[20%] left-0 right-0 z-[1] hidden border-t border-dashed border-[#d69d62]/55 lg:block" aria-hidden="true">
+		<span class="absolute left-[32.5%] top-0 grid h-6 min-w-6 -translate-x-1/2 -translate-y-1/2 place-items-center border border-[#eee4d8]/70 bg-[#1d1a16]/55 px-1 text-[0.5rem]">01</span>
+	</div>
+
+	<div
+		class="absolute left-7 top-8 flex translate-y-3 gap-3 text-[0.55rem] font-semibold uppercase tracking-[0.18em] opacity-0 transition-[opacity,transform] duration-700 data-[visible=true]:translate-y-0 data-[visible=true]:opacity-100 sm:left-10 lg:left-[clamp(4rem,7vw,8rem)] lg:top-16 lg:gap-6"
+		data-hero-reveal data-visible="false"
+	>
+		<span class="text-[#eee4d8]/70">Lima, Perú</span>
+	</div>
+
+	<div class="absolute left-5 top-[42%] w-[calc(100%-2.5rem)] -translate-y-1/2 text-left sm:left-1/2 sm:top-[43%] sm:w-[calc(100%-3rem)] sm:-translate-x-1/2 sm:text-center lg:top-[44%] lg:w-[min(900px,80%)]">
+		<p
+			class="flex translate-y-3 items-center justify-start gap-3 text-[0.54rem] font-semibold uppercase tracking-[0.16em] opacity-0 transition-[opacity,transform] delay-100 duration-700 data-[visible=true]:translate-y-0 data-[visible=true]:opacity-100 sm:justify-center sm:text-[0.62rem] sm:tracking-[0.25em]"
+			data-hero-reveal data-visible="false"
+		>
+			<span class="block h-px w-6 bg-[#cf9b64]"></span>
+			Arquitectura con sentido de lugar
+		</p>
+		<h1
+			id="hero-title"
+			class="mt-6 translate-y-3 text-[clamp(3rem,13.5vw,5.2rem)] font-light leading-[0.94] tracking-[-0.055em] opacity-0 transition-[opacity,transform] delay-150 duration-700 data-[visible=true]:translate-y-0 data-[visible=true]:opacity-100 sm:text-[clamp(3.2rem,11vw,6rem)] sm:leading-[0.87] lg:text-[clamp(3.5rem,6.2vw,7.6rem)]"
+			data-hero-reveal data-visible="false"
+		>
+			Espacios que dialogan<br />
+			<em class="mt-[0.08em] block [font-family:var(--grotesk)] font-[520] not-italic leading-[1.05] tracking-[-0.065em]">con el paisaje.</em>
+		</h1>
+		<div
+			class="mt-8 flex translate-y-3 items-center justify-start gap-2 opacity-0 transition-[opacity,transform] delay-200 duration-700 data-[visible=true]:translate-y-0 data-[visible=true]:opacity-100 sm:mt-10 sm:justify-center"
+			data-hero-reveal data-visible="false"
+		>
+			<a class="inline-flex min-h-[51px] items-center justify-center gap-5 border border-white/60 bg-[#eee4d8]/90 px-5 py-4 text-[0.61rem] font-bold uppercase tracking-[0.18em] text-[#1d1a16] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:bg-[#fff8f0] sm:min-w-[235px] sm:gap-8" href="#proyectos">
+				Explorar proyectos
+				<svg class="size-[18px] fill-none stroke-current stroke-[1.4] [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 18 18" aria-hidden="true">
+					<path d="M3 9h12M10.5 4.5 15 9l-4.5 4.5" />
+				</svg>
+			</a>
+			<button class="grid size-[51px] cursor-pointer place-items-center border border-white/60 bg-[#eee4d8]/90 text-[#1d1a16] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:bg-[#fff8f0]" type="button" data-open-project aria-label="Ver información del proyecto destacado">
+				<svg class="size-[18px] fill-none stroke-current stroke-[1.4] [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 18 18" aria-hidden="true">
+					<path d="M3 15 15 3M7 3h8v8" />
+				</svg>
+			</button>
+		</div>
+	</div>
+
+	<div
+		class="absolute bottom-7 left-7 flex translate-y-3 items-center gap-4 opacity-0 transition-[opacity,transform] delay-300 duration-700 data-[visible=true]:translate-y-0 data-[visible=true]:opacity-100 sm:bottom-8 sm:left-10 lg:bottom-[clamp(2.4rem,5vw,5.5rem)] lg:left-[clamp(4rem,7vw,8rem)]"
+		data-hero-reveal data-visible="false"
+	>
+		<p class="[font-family:var(--grotesk)] text-[2.1rem] font-[520] leading-none tracking-[-0.05em] lg:text-[2.8rem]">001</p>
+		<div class="uppercase">
+			<p class="mb-1 text-[0.5rem] font-semibold tracking-[0.19em] text-[#eee4d8]/60">Proyecto destacado</p>
+			<p class="[font-family:var(--serif)] text-[0.8rem] tracking-[0.12em]">Casa PC</p>
+		</div>
+	</div>
+
+	<p
+		class="absolute bottom-9 right-10 hidden w-[37vw] max-w-[360px] translate-y-3 [font-family:var(--serif)] text-[clamp(0.92rem,1.05vw,1.2rem)] leading-[1.45] text-[#f5ebde]/85 opacity-0 transition-[opacity,transform] delay-300 duration-700 data-[visible=true]:translate-y-0 data-[visible=true]:opacity-100 sm:block lg:bottom-[clamp(2.7rem,5.5vw,6rem)] lg:right-[clamp(3rem,5.5vw,6.5rem)] lg:w-[min(360px,28vw)]"
+		data-hero-reveal data-visible="false"
+	>
+		Creamos arquitectura serena y perdurable, donde la luz, la materia y el territorio encuentran su propio equilibrio.
+	</p>
+
+	<div class="absolute bottom-9 left-1/2 hidden -translate-x-1/2 items-center gap-3 text-[0.48rem] font-semibold uppercase tracking-[0.18em] lg:flex" aria-hidden="true">
+		<span>Desliza para descubrir</span>
+		<i class="h-px w-9 bg-[#eee4d8]/45 motion-safe:animate-pulse"></i>
+	</div>
+</section>
+
+<dialog class="m-auto w-[min(480px,calc(100%-2rem))] border border-[#eee4d8]/20 bg-[#2a241e] p-[clamp(2rem,5vw,4rem)] text-[#eee4d8] shadow-[0_30px_80px_rgba(0,0,0,.45)] backdrop:bg-[#0d0a08]/75 backdrop:backdrop-blur-md" aria-labelledby="project-dialog-title">
+	<button class="absolute right-6 top-6 grid size-10 cursor-pointer place-items-center border border-[#eee4d8]/30 bg-transparent text-[#eee4d8]" type="button" data-close-project aria-label="Cerrar información">
+		<svg class="size-4 fill-none stroke-current stroke-[1.2]" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 3 10 10M13 3 3 13" /></svg>
+	</button>
+	<p class="flex items-center gap-3 text-[0.6rem] font-semibold uppercase tracking-[0.22em]"><span class="h-px w-6 bg-[#cf9b64]"></span>Proyecto 001</p>
+	<h2 id="project-dialog-title" class="my-6 [font-family:var(--grotesk)] text-[clamp(2.7rem,6vw,4.5rem)] font-[520] tracking-[-0.055em]">Casa PC</h2>
+	<dl class="mb-8 grid">
+		<div class="flex justify-between gap-4 border-b border-[#eee4d8]/15 py-3"><dt class="text-[0.65rem] uppercase tracking-[0.1em] text-[#eee4d8]/55">Ubicación</dt><dd class="text-[0.65rem] uppercase tracking-[0.1em]">Perú</dd></div>
+		<div class="flex justify-between gap-4 border-b border-[#eee4d8]/15 py-3"><dt class="text-[0.65rem] uppercase tracking-[0.1em] text-[#eee4d8]/55">Tipología</dt><dd class="text-[0.65rem] uppercase tracking-[0.1em]">Residencial</dd></div>
+		<div class="flex justify-between gap-4 border-b border-[#eee4d8]/15 py-3"><dt class="text-[0.65rem] uppercase tracking-[0.1em] text-[#eee4d8]/55">Estado</dt><dd class="text-[0.65rem] uppercase tracking-[0.1em]">Proyecto</dd></div>
+	</dl>
+	<p class="[font-family:var(--serif)] text-[1.15rem] leading-[1.5] text-[#eee4d8]/75">Una propuesta residencial donde volumen, luz y vegetación construyen una relación directa con el entorno.</p>
+</dialog>
+
+<script>
+	const dialog = document.querySelector<HTMLDialogElement>('dialog[aria-labelledby="project-dialog-title"]');
+	const openButtons = document.querySelectorAll<HTMLButtonElement>('[data-open-project]');
+	const closeButton = document.querySelector<HTMLButtonElement>('[data-close-project]');
+	const heroImage = document.querySelector<HTMLElement>('[data-hero-image]');
+	const heroItems = document.querySelectorAll<HTMLElement>('[data-hero-reveal]');
+
+	requestAnimationFrame(() => requestAnimationFrame(() => {
+		if (heroImage) heroImage.dataset.visible = 'true';
+		heroItems.forEach((item) => item.dataset.visible = 'true');
+	}));
+
+	openButtons.forEach((button) => button.addEventListener('click', () => dialog?.showModal()));
+	closeButton?.addEventListener('click', () => dialog?.close());
+	dialog?.addEventListener('click', (event) => {
+		if (event.target === dialog) dialog.close();
+	});
+</script>

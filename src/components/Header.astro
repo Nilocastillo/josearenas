@@ -1,0 +1,85 @@
+---
+const navItems = [
+	{ label: 'Proyectos', href: '#proyectos' },
+	{ label: 'Estudio', href: '#estudio' },
+	{ label: 'Enfoque', href: '#enfoque' },
+	{ label: 'Contacto', href: '#contacto' },
+];
+---
+
+<header class="grid h-[78px] grid-cols-[auto_1fr] items-center gap-8 bg-[#1d1a16] px-[18px] lg:h-[92px] lg:gap-[clamp(2rem,7vw,9rem)] lg:px-[clamp(1.25rem,2.3vw,2.75rem)]">
+	<a class="relative z-30 grid w-max grid-cols-[auto_auto] grid-rows-2 items-center gap-x-3 uppercase" href="/" aria-label="José Arenas, inicio">
+		<span class="row-span-2 grid size-10 place-items-center lg:size-[46px]" aria-hidden="true">
+			<svg class="w-8 fill-none stroke-current stroke-[1.35] [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 42 42">
+				<path d="M7 33V16L21 7l14 9v17" />
+				<path d="M13 33V20l8-5 8 5v13M5 36h32" />
+			</svg>
+		</span>
+		<span class="self-end [font-family:var(--serif)] text-[0.82rem] font-semibold leading-[1.15] tracking-[0.11em] lg:text-[1.02rem]">José Arenas</span>
+		<span class="hidden self-start text-[0.55rem] font-semibold leading-[1.5] tracking-[0.28em] text-[#eee4d8]/55 sm:block">Arquitectura</span>
+	</a>
+
+	<button
+		class="group relative z-30 col-start-2 flex h-10 w-[72px] items-center justify-between justify-self-end border border-[#eee4d8]/40 bg-transparent px-3 text-[#eee4d8] lg:hidden"
+		type="button"
+		aria-label="Abrir menú"
+		aria-expanded="false"
+		aria-controls="primary-navigation"
+	>
+		<span class="text-[0.48rem] font-bold uppercase tracking-[0.16em]">Menú</span>
+		<span class="flex flex-col gap-[5px]">
+			<i class="h-px w-3.5 bg-current transition-transform duration-200 group-aria-expanded:translate-y-[3px] group-aria-expanded:rotate-45"></i>
+			<i class="h-px w-3.5 bg-current transition-transform duration-200 group-aria-expanded:-translate-y-[3px] group-aria-expanded:-rotate-45"></i>
+		</span>
+	</button>
+
+	<nav
+		class="pointer-events-none invisible fixed inset-0 z-20 flex -translate-y-2 flex-col justify-center gap-8 bg-[#1d1a16]/98 px-8 pb-12 pt-28 opacity-0 transition-[opacity,visibility,transform] duration-300 data-[open=true]:pointer-events-auto data-[open=true]:visible data-[open=true]:translate-y-0 data-[open=true]:opacity-100 lg:pointer-events-auto lg:visible lg:static lg:flex lg:translate-y-0 lg:flex-row lg:items-center lg:justify-between lg:bg-transparent lg:p-0 lg:opacity-100"
+		id="primary-navigation"
+		data-open="false"
+		aria-label="Navegación principal"
+	>
+		<ul class="flex list-none flex-col items-start gap-5 p-0 lg:flex-row lg:items-center lg:justify-center lg:gap-[clamp(1.75rem,4vw,5rem)]">
+			{navItems.map((item) => (
+				<li>
+					<a
+						class="relative [font-family:var(--serif)] text-[clamp(2.2rem,10vw,4rem)] font-normal tracking-[-0.03em] after:absolute after:-bottom-2 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100 lg:[font-family:var(--sans)] lg:text-[0.66rem] lg:font-semibold lg:uppercase lg:tracking-[0.21em]"
+						href={item.href}
+					>{item.label}</a>
+				</li>
+			))}
+		</ul>
+		<a
+			class="mt-auto inline-flex w-fit items-center gap-4 border border-[#eee4d8]/35 px-5 py-3.5 text-[0.66rem] font-semibold uppercase tracking-[0.21em] transition-colors duration-300 hover:bg-[#eee4d8] hover:text-[#1d1a16] lg:mt-0"
+			href="mailto:estudio@josearenas.pe"
+		>
+			Conversemos
+			<svg class="size-3.5 fill-none stroke-current stroke-[1.25] [stroke-linecap:round] [stroke-linejoin:round]" viewBox="0 0 16 16" aria-hidden="true">
+				<path d="M3 13 13 3M6 3h7v7" />
+			</svg>
+		</a>
+	</nav>
+</header>
+
+<script>
+	const toggle = document.querySelector<HTMLButtonElement>('[aria-controls="primary-navigation"]');
+	const nav = document.querySelector<HTMLElement>('#primary-navigation');
+
+	function closeMenu() {
+		toggle?.setAttribute('aria-expanded', 'false');
+		toggle?.setAttribute('aria-label', 'Abrir menú');
+		if (nav) nav.dataset.open = 'false';
+	}
+
+	toggle?.addEventListener('click', () => {
+		const willOpen = toggle.getAttribute('aria-expanded') !== 'true';
+		toggle.setAttribute('aria-expanded', String(willOpen));
+		toggle.setAttribute('aria-label', willOpen ? 'Cerrar menú' : 'Abrir menú');
+		if (nav) nav.dataset.open = String(willOpen);
+	});
+
+	nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+	document.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape') closeMenu();
+	});
+</script>

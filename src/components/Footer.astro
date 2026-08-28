@@ -1,0 +1,56 @@
+---
+const year = new Date().getFullYear();
+
+const navigation = [
+	{ label: 'Estudio', href: '#estudio' },
+	{ label: 'Proyectos', href: '#proyectos' },
+	{ label: 'Portafolio', href: '#portafolio' },
+	{ label: 'Enfoque', href: '#enfoque' },
+];
+---
+
+<footer id="contacto" class="mx-[10px] mb-[10px] border border-[#eee4d8]/10 bg-[#17130f] px-6 py-12 text-[#eee4d8] lg:mx-[18px] lg:mb-[18px] lg:px-[clamp(4rem,7vw,8rem)] lg:py-16">
+	<div class="grid gap-10 border-b border-[#eee4d8]/20 pb-12 lg:grid-cols-12 lg:items-end lg:pb-16">
+		<div class="lg:col-span-9">
+			<p class="mb-5 text-[0.58rem] font-bold uppercase tracking-[0.24em] text-[#eee4d8]/50">¿Tiene un proyecto en mente?</p>
+			<a href="mailto:info@josearenasarquitecto.com" class="inline-block max-w-full break-words text-[clamp(2.15rem,5.7vw,6.8rem)] font-light leading-[0.92] tracking-[-0.055em] decoration-1 underline-offset-[0.15em] transition-colors hover:text-[#cf9b64] hover:underline">
+				Conversemos.
+			</a>
+		</div>
+		<a href="mailto:info@josearenasarquitecto.com" class="inline-flex w-fit items-center gap-6 border border-[#eee4d8]/40 px-5 py-3.5 text-[0.58rem] font-bold uppercase tracking-[0.18em] transition-colors duration-300 hover:border-[#eee4d8] hover:bg-[#eee4d8] hover:text-[#17130f] lg:col-span-3 lg:justify-self-end">
+			Escribir al estudio
+			<svg class="size-3.5 fill-none stroke-current stroke-[1.4]" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" /></svg>
+		</a>
+	</div>
+
+	<div class="grid gap-10 pt-10 text-[0.72rem] leading-[1.7] text-[#eee4d8]/65 md:grid-cols-2 lg:grid-cols-12">
+		<div class="lg:col-span-4">
+			<a href="#inicio" class="inline-flex items-center gap-3 text-[#eee4d8]" aria-label="José Arenas Arquitecto, volver al inicio">
+				<span class="grid size-10 place-items-center border border-[#eee4d8]/60 text-[0.62rem] font-bold tracking-[0.08em]">JA</span>
+				<span class="leading-tight">
+					<strong class="block text-[0.78rem] font-semibold uppercase tracking-[0.15em]">José Arenas</strong>
+					<span class="text-[0.55rem] uppercase tracking-[0.22em] text-[#eee4d8]/50">Arquitecto</span>
+				</span>
+			</a>
+		</div>
+
+		<nav aria-label="Navegación del pie" class="lg:col-span-2">
+			<p class="mb-3 text-[0.55rem] font-bold uppercase tracking-[0.2em] text-[#eee4d8]/40">Mapa</p>
+			<ul class="space-y-1.5">
+				{navigation.map((item) => <li><a class="transition-colors hover:text-[#eee4d8]" href={item.href}>{item.label}</a></li>)}
+			</ul>
+		</nav>
+
+		<div class="lg:col-span-3">
+			<p class="mb-3 text-[0.55rem] font-bold uppercase tracking-[0.2em] text-[#eee4d8]/40">Contacto</p>
+			<a class="block break-all transition-colors hover:text-[#eee4d8]" href="mailto:info@josearenasarquitecto.com">info@josearenasarquitecto.com</a>
+			<a class="mt-1 block transition-colors hover:text-[#eee4d8]" href="tel:+51974674757">+51 974 674 757</a>
+			<p class="mt-1">Lima, Perú</p>
+		</div>
+
+		<div class="flex flex-col justify-between gap-4 lg:col-span-3 lg:text-right">
+			<p>Arquitectura responsable,<br />precisa y vinculada a su entorno.</p>
+			<p class="text-[0.52rem] uppercase tracking-[0.16em] text-[#eee4d8]/40">© {year} José Arenas Arquitecto</p>
+		</div>
+	</div>
+</footer>
